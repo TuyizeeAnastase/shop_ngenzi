@@ -1,0 +1,19 @@
+.related-products {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 20px;
+    padding: 20px 0; /* Remove left padding to align with the edge */
+    background-color: #f9f9f9;
+    margin-left: 0; /* Align container to the left edge */
+  }
+  
+  .related-products a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .related-products .item-card {
+    width: 200px; /* Adjust width as needed */
+    flex: 0 0 auto; /* Prevent flex items from shrinking */
+  }
+  

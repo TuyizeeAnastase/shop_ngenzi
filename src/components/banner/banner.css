@@ -1,0 +1,17 @@
+.home-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .carousel-item {
+    padding: 10px;
+  }
+  
+  .carousel-item img {
+    width: 80%; /* Reduce the size of the images */
+    height: auto;
+    margin: 0 auto; /* Center the images */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  

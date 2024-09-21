@@ -1,0 +1,24 @@
+.overview-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  flex: 1;
+}
+
+.card-image {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.card_title {
+  margin: 10px 0;
+}
+
+.card-paragraph {
+  font-size: 24px;
+  font-weight: bold;
+}

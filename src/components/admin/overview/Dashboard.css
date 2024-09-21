@@ -1,0 +1,20 @@
+.dashboard-container {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 220px; /* Space for the sidebar */
+  }
+
+  .dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .overview-cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  

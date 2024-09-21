@@ -1,0 +1,42 @@
+.item-card {
+  width: 360px; /* Double the width to match the new design */
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-5px); /* Slight hover effect */
+}
+
+.item-card img {
+  width: 100%;
+  height: 300px; /* Double the height to match the new design */
+  object-fit: cover; /* Maintain aspect ratio, cover the area */
+}
+
+.item-brand,
+.item-name {
+  padding: 10px;
+  font-size: 16px; /* Adjusted font size to fit the new card size */
+}
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  font-size: 16px; /* Adjusted font size to fit the new card size */
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.item-price {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.item-rating {
+  color: #ff9800;
+}
