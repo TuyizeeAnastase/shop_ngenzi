@@ -1,11 +1,18 @@
 .overview-card {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   padding: 20px;
   text-align: center;
   margin: 20px;
   flex: 1;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; /* Add cursor pointer for better UX */
+}
+
+.overview-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card-image {
@@ -14,11 +21,14 @@
   margin-bottom: 10px;
 }
 
-.card_title {
+.card-title {
   margin: 10px 0;
+  color: #333; /* Darker text color */
+  font-size: 18px;
 }
 
 .card-paragraph {
   font-size: 24px;
   font-weight: bold;
+  color: #e91e63; /* Accent color for count */
 }

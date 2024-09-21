@@ -1,17 +1,17 @@
 .home-container {
     text-align: center;
-    padding: 20px;
+    padding: 5px;
   }
   
   .carousel-item {
-    padding: 10px;
+    padding: 1px;
   }
   
   .carousel-item img {
-    width: 80%; /* Reduce the size of the images */
-    height: auto;
-    margin: 0 auto; /* Center the images */
+    width: 90%; /* Reduce width to 60% */
+    height: 70%; /* Adjust height proportionally */
+    margin: 2px auto 0; /* Reduce top margin to 20px, auto for horizontal centering, 0 for bottom margin */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   

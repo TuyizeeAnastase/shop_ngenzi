@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import "./ItemDetail.css";
 import items from "../../mockData/items.json";
 import { GlobalContext } from "../../context/GlobalState";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import GetRelatedProducts from '../relatedProducts/RelatedProducts'
 
 const getItemDetail = (id) => items.filter((item) => item.id === id)[0];
@@ -15,6 +17,9 @@ function ItemDetail() {
   const [isAdded, setIsAdded] = useState(
     cart.findIndex((c) => c.id === itemId) > -1
   );
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="item-detail-container">
@@ -24,34 +29,100 @@ function ItemDetail() {
           <img src={item.image} alt={"Item image"} />
         </div>
         <div className="item-detail-info">
-          <div className="item-brand">{item.brand}</div>
-          <div className="item-name">{item.name}</div>
-          <div className="item-price">${item.price}</div>
+          {/* Product name, category, and availability on the same line */}
+          <div className="item-info-line">
+            <div className="item-name">{item.name}</div>
+            <div className="item-category">Category: Man {item.category}</div>
+            <div className="item-availability">
+              Availability: {item.available ? "In Stock" : "Out of Stock"}
+            </div>
+          </div>
 
-          <select className="item-size">
-            <option value={"S"}> Select size (S)</option>
-            <option value={"M"}> Select size (M)</option>
-            <option value={"L"}> Select size (L)</option>
-            <option value={"XL"}> Select size (XL)</option>
-          </select>
-          <button
-            className="item-btn"
-            disabled={isAdded}
-            onClick={() => {
-              addItemToCartList(item);
-              setIsAdded(true);
-            }}
-          >
-            {isAdded ? <Link to="/cart">Go to Cart</Link> : "Add To Bag"}
-          </button>
-          <p className="item-description">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
-          </p>
+          {/* Cost and discount on the same line */}
+          <div className="item-info-line">
+            <div className="item-price">
+              ${item.price}
+            </div>
+            {item.saleDiscount && (
+              <div className="item-discount">Discount: -{item.saleDiscount}%</div>
+            )}
+          </div>
+
+          {/* Size, color, and quantity on the same line */}
+          <div className="item-selection-line">
+            <select
+              className="item-size"
+              value={selectedSize}
+              onChange={(e) => setSelectedSize(e.target.value)}
+            >
+              <option value="">Size</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+
+            <select
+              className="item-color"
+              value={selectedColor}
+              onChange={(e) => setSelectedColor(e.target.value)}
+            >
+              <option value="">Color</option>
+              <option value="Red">Red</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+              <option value="Black">Black</option>
+            </select>
+
+            <div className="item-quantity">
+              <label>Qty:</label>
+              <input
+                type="number"
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+                min="1"
+                max={item.available ? 10 : 0}
+              />
+            </div>
+          </div>
+
+          {/* Add to Cart and Wishlist buttons on the same line */}
+          <div className="item-action-line">
+            <button
+              className="item-btn"
+              disabled={isAdded}
+              onClick={() => {
+                addItemToCartList(item);
+                setIsAdded(true);
+              }}
+            >
+              {isAdded ? <Link to="/cart">Go to Cart</Link> : "Add To Bag"}
+            </button>
+
+            <button className="item-wishlist-btn">
+              Add to Wishlist
+            </button>
+          </div>
+
+          {/* Social media share */}
+          <div className="social-media-share">
+            <h4>Share:</h4>
+            <a href={`https://facebook.com/sharer/sharer.php?u=example.com`} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faFacebook} /> Facebook
+            </a>
+            <a href={`https://twitter.com/intent/tweet?url=example.com`} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faTwitter} /> Twitter
+            </a>
+            <a href={`https://instagram.com`} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} /> Instagram
+            </a>
+            <a href={`https://linkedin.com/sharing/share-offsite/?url=example.com`} target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+            </a>
+          </div>
+
+          {/* Item description */}
+          <p className="item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac pulvinar risus. Suspendisse imperdiet,</p>
         </div>
       </div>
       <GetRelatedProducts items={items}/>

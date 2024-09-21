@@ -1,20 +1,41 @@
 .dashboard-container {
-    display: flex;
-  }
-  
-  .dashboard-content {
-    flex: 1;
-    padding: 20px;
-    margin-left: 220px; /* Space for the sidebar */
-  }
+  display: flex;
+}
 
-  .dashboard-content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .overview-cards {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 220px; /* Space for the sidebar */
+}
+
+.overview-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+  background-color: #f1c40f; /* Hover effect */
+}

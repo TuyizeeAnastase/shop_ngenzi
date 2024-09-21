@@ -4,22 +4,41 @@
   padding: 20px;
 }
 
+.section {
+  margin-bottom: 40px;
+}
+
 .header-container {
   display: flex;
-  justify-content: flex-start; /* Align the header to the left */
-  margin-bottom: 20px;
+  justify-content: flex-start; /* Align header to the left */
+  margin-bottom: 10px;
+  width: 100%; /* Ensure full width for the line */
 }
 
 .header {
   font-size: 24px;
   font-weight: bold;
   color: #333;
+  padding-bottom: 10px;
+  position: relative;
+  width: 100%; /* Make the header full width */
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%; /* Full-width line */
+  height: 4px; /* Thickness of the line */
+  background-color: #e91e63; /* Line color */
 }
 
 .item-list {
   display: flex;
   gap: 20px; /* Space between the items */
   justify-content: space-between; /* Spread items evenly */
+  margin-bottom: 40px; /* Space between sections */
 }
 
 .item-list a {
@@ -28,7 +47,7 @@
 }
 
 .item-card {
-  width: 360px; /* Double the width */
+  width: 240px; /* Double the width */
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
